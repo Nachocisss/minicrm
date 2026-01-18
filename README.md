@@ -20,3 +20,4 @@ Próximos pasos recomendados:
 - Añadir base de datos (Postgres) y migraciones
 - Implementar autenticación JWT y roles
 - Añadir tests y Dockerfile
+# minicrm
