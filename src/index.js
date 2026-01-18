@@ -10,9 +10,13 @@ app.use(express.json());
 
 const healthRouter = require('./routes/health');
 const contactsRouter = require('./routes/contacts');
+const accountsRouter = require('./routes/accounts');
+const dealsRouter = require('./routes/deals');
 
 app.use('/health', healthRouter);
 app.use('/api/contacts', contactsRouter);
+app.use('/api/accounts', accountsRouter);
+app.use('/api/deals', dealsRouter);
 
 const port = process.env.PORT || 3000;
 app.listen(port, () => {
