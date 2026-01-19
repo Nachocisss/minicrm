@@ -1,0 +1,208 @@
+{
+  "info": {
+    "name": "MiniCRM API",
+    "_postman_id": "b6f1b2f2-4a4f-4c2c-a6f2-9c1a6b6c3a10",
+    "description": "Coleccion para probar endpoints en memoria.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      { "key": "token", "value": "{{token}}", "type": "string" }
+    ]
+  },
+  "item": [
+    {
+      "name": "Auth",
+      "item": [
+        {
+          "name": "Login",
+          "request": {
+            "method": "POST",
+            "header": [
+              { "key": "Content-Type", "value": "application/json" }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"email\": \"admin@minicrm.test\",\n  \"password\": \"admin123\"\n}"
+            },
+            "url": "{{baseUrl}}/auth/login"
+          }
+        }
+      ]
+    },
+    {
+      "name": "Health",
+      "request": {
+        "method": "GET",
+        "url": "{{baseUrl}}/health"
+      }
+    },
+    {
+      "name": "Deals",
+      "item": [
+        {
+          "name": "List deals",
+          "request": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/deals"
+          }
+        },
+        {
+          "name": "Create deal",
+          "request": {
+            "method": "POST",
+            "header": [
+              { "key": "Content-Type", "value": "application/json" }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"title\": \"Upgrade plan\",\n  \"description\": \"Cliente quiere subir plan\",\n  \"value\": 9500,\n  \"stage\": \"proposal\",\n  \"accountId\": 1,\n  \"contactId\": 2,\n  \"ownerId\": 10\n}"
+            },
+            "url": "{{baseUrl}}/api/deals"
+          }
+        },
+        {
+          "name": "Get deal by id",
+          "request": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/deals/1"
+          }
+        },
+        {
+          "name": "Update deal",
+          "request": {
+            "method": "PUT",
+            "header": [
+              { "key": "Content-Type", "value": "application/json" }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"stage\": \"won\",\n  \"value\": 12000\n}"
+            },
+            "url": "{{baseUrl}}/api/deals/1"
+          }
+        },
+        {
+          "name": "Delete deal",
+          "request": {
+            "method": "DELETE",
+            "url": "{{baseUrl}}/api/deals/1"
+          }
+        }
+      ]
+    },
+    {
+      "name": "Accounts",
+      "item": [
+        {
+          "name": "List accounts",
+          "request": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/accounts"
+          }
+        },
+        {
+          "name": "Create account",
+          "request": {
+            "method": "POST",
+            "header": [
+              { "key": "Content-Type", "value": "application/json" }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"Acme Inc\",\n  \"website\": \"https://acme.test\",\n  \"industry\": \"Manufactura\",\n  \"ownerId\": 10\n}"
+            },
+            "url": "{{baseUrl}}/api/accounts"
+          }
+        },
+        {
+          "name": "Get account by id",
+          "request": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/accounts/1"
+          }
+        },
+        {
+          "name": "Update account",
+          "request": {
+            "method": "PUT",
+            "header": [
+              { "key": "Content-Type", "value": "application/json" }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"industry\": \"Retail\"\n}"
+            },
+            "url": "{{baseUrl}}/api/accounts/1"
+          }
+        },
+        {
+          "name": "Delete account",
+          "request": {
+            "method": "DELETE",
+            "url": "{{baseUrl}}/api/accounts/1"
+          }
+        }
+      ]
+    },
+    {
+      "name": "Contacts",
+      "item": [
+        {
+          "name": "List contacts",
+          "request": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/contacts"
+          }
+        },
+        {
+          "name": "Create contact",
+          "request": {
+            "method": "POST",
+            "header": [
+              { "key": "Content-Type", "value": "application/json" }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"Ana Perez\",\n  \"email\": \"ana@example.test\",\n  \"phone\": \"+56 9 1234 5678\"\n}"
+            },
+            "url": "{{baseUrl}}/api/contacts"
+          }
+        },
+        {
+          "name": "Get contact by id",
+          "request": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/contacts/1"
+          }
+        },
+        {
+          "name": "Update contact",
+          "request": {
+            "method": "PUT",
+            "header": [
+              { "key": "Content-Type", "value": "application/json" }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"phone\": \"+56 9 9876 5432\"\n}"
+            },
+            "url": "{{baseUrl}}/api/contacts/1"
+          }
+        },
+        {
+          "name": "Delete contact",
+          "request": {
+            "method": "DELETE",
+            "url": "{{baseUrl}}/api/contacts/1"
+          }
+        }
+      ]
+    }
+  ],
+  "variable": [
+    { "key": "baseUrl", "value": "http://localhost:3000" },
+    { "key": "token", "value": "" }
+  ]
+}
